@@ -84,6 +84,22 @@ namespace Hash_Table
             linkedList.AddLast(item);
         }
 
+        public void Remove(K key)
+        {
+            int position = GetArrayPosition(key);
+            LinkedList<KeyValue<K, V>> linkedList = items[position];
+            KeyValue<K, V> Removing = default(KeyValue<K, V>);
+            foreach (KeyValue<K, V> kv in linkedList)
+            {
+                if (kv.key.Equals(key))
+                {
+                    Removing = kv;
+                }
+            }
+            linkedList.Remove(Removing);
+        }
+
+
         public void Display(K key)
         {
             int position = GetArrayPosition(key);

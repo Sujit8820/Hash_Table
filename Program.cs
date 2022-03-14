@@ -17,19 +17,22 @@ namespace Dictionary
         }
 
 
-        public static void WordFrequency(string[] Sentence)
+        public static void WordFrequency(string[] StringToArray)
         {
-            MyMapNode<string, int> MyMapNode = new MyMapNode<string, int>(5);
-            foreach (string word in Sentence)
-            {
-                int count = MyMapNode.CountFrequency(word);
-                MyMapNode.Add(word, count);
-            }
-            IEnumerable<string> DistinctSentence = Sentence.Distinct<string>();
-            foreach (string word in DistinctSentence)
-            {
-                MyMapNode.Display(word);
-            }
+            
+                MyMapNode<string, int> MyMapNode = new MyMapNode<string, int>(5);
+                foreach (string word in StringToArray)
+                {
+                    int count = MyMapNode.CountFrequency(word);
+                    MyMapNode.Add(word, count);
+                }
+                MyMapNode.Remove("avoidable");
+                IEnumerable<string> DistinctSentence = StringToArray.Distinct<string>();
+                foreach (string word in DistinctSentence)
+                {
+                    MyMapNode.Display(word);
+                }
+            
         }
     }
 }
